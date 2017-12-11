@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 2.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Craig McGee Jr.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -112,10 +112,17 @@ def problem2a(circle, rectangle, window):
     # ------------------------------------------------------------------
     rectangle.attach_to(window)
     circle.attach_to(window)
-    top_right_corner_of_rectangle = rectangle.get_upper_right_corner()
-    bottom_left_corner_of_rectangle = rectangle.get_lower_left_corner()
-    draw_line = rg.Line(top_right_corner_of_rectangle, bottom_left_corner_of_rectangle)
+    window.render(0.05)
+
+    draw_line = rg.Line(rectangle.get_upper_right_corner(), rectangle.get_lower_left_corner())
+    draw_line.arrow = "last"
     draw_line.attach_to(window)
+    window.render(0.05)
+
+    window.continue_on_mouse_click()
+
+    color_change = rectangle.outline_color
+    circle.fill_color = color_change
     window.render(0.05)
 
 
@@ -181,7 +188,7 @@ def problem2b(rect, n, delta, win):
       :type win:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -193,9 +200,17 @@ def problem2b(rect, n, delta, win):
     win.render()
     center = rect.get_center()
     width = rect.get_width()
-    for _ in range(n):
-        rectangle = rg.Rectangle(center.x, center.y)
-
+    height = rect.get_height()
+    for _ in range(n - 1):
+        delta_y = (2 * delta + height) / 2
+        delta_x = (2 * delta + width) / 2
+        top = rg.Point(center.x-delta_x, center.y-delta_y)
+        bottom = rg.Point(center.x + delta_x, center.y + delta_y)
+        rectangle1 = rg.Rectangle(top, bottom)
+        rectangle1.attach_to(win)
+        height = rectangle1.get_height()
+        width = rectangle1.get_width()
+        win.render()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

@@ -363,7 +363,13 @@ def problem1c(n):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 20 minutes.
     # ------------------------------------------------------------------
-
+    prime_product = 1
+    for k in range(n - 1):
+        candidate_prime = is_prime(2 + k)
+        if candidate_prime:
+            prime_product = prime_product * (2 + k)
+    prime_product_sum_of_digits = sum_of_digits(prime_product)
+    return prime_product_sum_of_digits
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
