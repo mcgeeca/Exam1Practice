@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 3.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Craig McGee Jr.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -37,7 +37,7 @@ def main():
 def run_test_problem3a():
     """ Tests the   problem3a   function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   5   ** tests (we wrote four for you).
     # ------------------------------------------------------------------
@@ -121,12 +121,12 @@ def run_test_problem3a():
     title = "Problem 3a.  Test 5: Start at (10, 15), 9 lines"
     window4 = rg.RoseWindow(450, 300, title)
 
-    # Test 4 (it is on window 3):
+    # Test 6 (it is on window 3):
     point = rg.Point(10, 15)
     expected = 88
     answer = problem3a(window4, point, 10)
     print()
-    print("Test 5 expected:", expected)
+    print("Test 6 expected:", expected)
     print("       actual:  ", answer)
 
     window4.close_on_mouse_click()
@@ -247,7 +247,7 @@ def problem3b(m, point1):
         :type point1: rg.Point
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
